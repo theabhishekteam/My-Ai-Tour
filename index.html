@@ -1,44 +1,52 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Travel Planner</title>
+  <title>My AI Tour</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="page">
-  <div class="container">
+<script>
+if(!localStorage.getItem("login")){
+  window.location.href="login.html";
+}
+</script>
 
-    <!-- LEFT SIDE -->
-    <div class="left">
-      <h2 class="logo">TravelPass.</h2>
-      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
-           alt="travel" />
-      <div class="quote">
-        <p>Plan smart trips with automatic budgeting.</p>
-      </div>
-    </div>
+<div class="container">
+  <h2>Plan Your Trip</h2>
 
-    <!-- RIGHT SIDE -->
-    <div class="right">
-      <h2>Plan your trip</h2>
-      <p class="subtitle">Automatic travel planning</p>
+  <label>From (Home Location)</label>
+  <select id="from">
+    <option>Patna</option>
+    <option>Ranchi</option>
+    <option>Bhopal</option>
+    <option>Raipur</option>
+    <option>Cuttack</option>
+  </select>
 
-      <input type="number" id="people" placeholder="No of people">
+  <label>To (Destination)</label>
+  <select id="to">
+    <option>Agra</option>
+    <option>Delhi</option>
+    <option>Kolkata</option>
+    <option>Bhubaneswar</option>
+    <option>Jaipur</option>
+  </select>
 
-      <select id="transport">
-        <option value="train">By Train</option>
-        <option value="car">By Car</option>
-      </select>
+  <label>No of People</label>
+  <input type="number" id="people" placeholder="e.g. 2">
 
-      <button onclick="planTrip()">Plan Now</button>
+  <label>No of Days</label>
+  <input type="number" id="days" placeholder="e.g. 3">
 
-      <div id="result"></div>
-    </div>
+  <button onclick="calculate()">Calculate Trip</button>
 
-  </div>
+  <div id="result"></div>
+
+  <button class="logout" onclick="logout()">Logout</button>
 </div>
 
 <script src="script.js"></script>
 </body>
 </html>
+
