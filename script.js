@@ -1,22 +1,37 @@
-function planTrip() {
-  const people = document.getElementById("people").value || 1;
-  const transport = document.getElementById("transport").value;
+function calculate(){
+  const from = document.getElementById("from").value;
+  const to = document.getElementById("to").value;
+  const people = Number(document.getElementById("people").value);
+  const days = Number(document.getElementById("days").value);
 
-  let destination = "Jaipur";
-  let days = 3;
+  if(!people || !days){
+    alert("Enter people & days");
+    return;
+  }
 
-  let stay = 1200 * days;
-  let food = 400 * people * days;
-  let transportCost = transport === "train" ? 700 * people : 3000;
+  // average costs
+  let stay = 1500 * days;
+  let food = 500 * people * days;
+  let travel = 2000 + (people * 500);
 
-  let total = stay + food + transportCost;
+  let total = stay + food + travel;
 
   document.getElementById("result").innerHTML = `
-    <div style="margin-top:15px;">
-      <h3>${destination}</h3>
-      <p>Days: ${days}</p>
-      <p>Transport: ${transport}</p>
-      <h2>₹${total}</h2>
-    </div>
+    <hr>
+    <b>Route:</b> ${from} → ${to}<br>
+    <b>People:</b> ${people}<br>
+    <b>Days:</b> ${days}<br><br>
+
+    🏨 Stay: ₹${stay}<br>
+    🍽 Food: ₹${food}<br>
+    🚆 Travel: ₹${travel}<br><br>
+
+    <h3>Total Budget: ₹${total}</h3>
   `;
 }
+
+function logout(){
+  localStorage.removeItem("login");
+  window.location.href="login.html";
+}
+
