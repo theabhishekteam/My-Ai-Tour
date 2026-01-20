@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login | My AI Tour</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container auth">
+  <h2>My AI Tour</h2>
+  <p>Login to continue</p>
+
+  <input type="email" placeholder="Email" id="email">
+  <input type="password" placeholder="Password" id="password">
+
+  <button onclick="login()">Login</button>
+  <p id="error"></p>
+</div>
+
+<script>
+function login() {
+  const e = document.getElementById("email").value;
+  const p = document.getElementById("password").value;
+
+  if(e && p){
+    localStorage.setItem("login","true");
+    window.location.href = "index.html";
+  } else {
+    document.getElementById("error").innerText = "Enter email & password";
+  }
+}
+</script>
+
+</body>
+</html>
