@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page">
+  <div class="container">
+
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <h2 class="logo">TravelPass.</h2>
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+           alt="travel" />
+      <div class="quote">
+        <p>Plan smart trips with automatic budgeting.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <h2>Plan your trip</h2>
+      <p class="subtitle">Automatic travel planning</p>
+
+      <input type="number" id="people" placeholder="No of people">
+
+      <select id="transport">
+        <option value="train">By Train</option>
+        <option value="car">By Car</option>
+      </select>
+
+      <button onclick="planTrip()">Plan Now</button>
+
+      <div id="result"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
